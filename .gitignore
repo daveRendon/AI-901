@@ -1,0 +1,18 @@
+# Secretos y entorno local
+.env
+.venv/
+
+# Python
+__pycache__/
+*.pyc
+
+# Salida generada por voz_luma.py al ejecutarlo desde la raíz
+/respuesta.wav
+
+# Material interno para Udemy (no forma parte del repositorio del curso)
+udemy_descripciones_y_recursos.md
+
+# Editor y sistema operativo
+.vscode/
+.DS_Store
+Thumbs.db

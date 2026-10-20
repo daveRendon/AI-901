@@ -1,0 +1,12 @@
+Clasifica el ticket y responde SOLO con JSON válido,
+sin texto adicional, con esta estructura:
+{
+  "categoria": "facturacion | falla_tecnica | cambio_plan | otro",
+  "prioridad": 1,
+  "resumen": "máximo 25 palabras",
+  "requiere_humano": false
+}
+
+Ticket: """Mi router se desconecta cada noche desde
+hace una semana y ya pagué la factura. Trabajo
+desde casa y necesito una solución urgente."""

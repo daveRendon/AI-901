@@ -1,0 +1,7 @@
+azure-ai-projects>=2.1.0
+azure-identity
+python-dotenv
+openai
+azure-ai-textanalytics
+azure-cognitiveservices-speech
+azure-ai-contentunderstanding

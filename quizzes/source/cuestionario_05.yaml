@@ -1,0 +1,245 @@
+id: cuestionario-05
+titulo: Cuestionario 5 · Text analysis, Azure Language y Speech
+seccion: 6 y 7
+lecciones: 25–33
+tiempo_min: 15
+descripcion: Preguntas de escenario sobre análisis de texto, Azure Language, speech-to-text, text-to-speech y modelos
+  multimodales de audio.
+preguntas:
+- id: q01
+  tipo: multiple-choice
+  grupo: G3
+  objetivo: Describe common text analysis techniques, including keyword extraction, entity detection, sentiment
+    analysis, and summarization
+  lecciones:
+  - 25
+  enunciado: Un supervisor de Luma quiere saber rápidamente quién escribió un ticket, qué producto menciona, dónde
+    ocurrió el problema y en qué fecha empezó. ¿Qué técnica de text analysis debe reconocer en el examen?
+  opciones:
+  - texto: Named entity recognition.
+    correcta: true
+    explicacion: Entity recognition identifica personas, productos, ubicaciones y fechas en el texto.
+  - texto: Key phrase extraction.
+    correcta: false
+    explicacion: Key phrases indican temas principales, pero no clasifican cada nombre o fecha como entidad.
+  - texto: Sentiment analysis.
+    correcta: false
+    explicacion: Sentiment analysis clasifica la emoción o polaridad del texto, no quién, qué, dónde y cuándo.
+  - texto: Speech synthesis.
+    correcta: false
+    explicacion: Speech synthesis convierte texto en audio; no analiza entidades de un ticket.
+  explicacion_general: La lección 25 distingue keywords, entidades, sentimiento y resumen. Identificar nombres,
+    fechas, lugares o productos es named entity recognition. Repasa la lección 25.
+- id: q02
+  tipo: multi-select
+  grupo: G3
+  objetivo: Describe common text analysis techniques, including keyword extraction, entity detection, sentiment
+    analysis, and summarization
+  lecciones:
+  - 25
+  enunciado: Luma automatiza notas para agentes humanos a partir de tickets largos. ¿Qué DOS afirmaciones sobre
+    summarization son correctas según la lección? Selecciona DOS respuestas.
+  opciones:
+  - texto: El resumen extractivo siempre genera oraciones nuevas más naturales.
+    correcta: false
+    explicacion: Generar oraciones nuevas corresponde al resumen abstractivo, no al extractivo.
+  - texto: El resumen extractivo selecciona y copia oraciones relevantes del texto original.
+    correcta: true
+    explicacion: El enfoque extractivo conserva oraciones del texto, por eso suele ser fiel pero fragmentado.
+  - texto: El resumen abstractivo redacta texto nuevo y puede introducir errores.
+    correcta: true
+    explicacion: 'Los modelos generativos producen resúmenes abstractivos: naturales, compactos y con riesgo de
+      error.'
+  - texto: La summarization solo sirve para audio, no para texto de tickets.
+    correcta: false
+    explicacion: La lección usa summarization sobre tickets de texto y conversaciones.
+  explicacion_general: Extractivo copia partes relevantes; abstractivo redacta una versión nueva. El examen puede
+    preguntar por la diferencia porque afecta fidelidad y riesgo de errores. Repasa la lección 25.
+- id: q03
+  tipo: multiple-choice
+  grupo: G5
+  objetivo: Build a lightweight application that includes text analysis
+  lecciones:
+  - 26
+  - 29
+  enunciado: Debes redactar PII en miles de transcripciones con la misma estructura de salida, confidence scores
+    y resultados consistentes ante la misma entrada. ¿Qué enfoque recomienda el curso?
+  opciones:
+  - texto: Un modelo de propósito general con un prompt conversacional.
+    correcta: false
+    explicacion: El modelo general es flexible, pero puede variar y no devuelve confidence scores comparables.
+  - texto: Un prompt de image generation con restricciones.
+    correcta: false
+    explicacion: Image generation crea imágenes; no redacta datos personales de texto.
+  - texto: Azure Language en Foundry Tools.
+    correcta: true
+    explicacion: Azure Language ofrece tareas especializadas, estructura fija, resultados deterministas y confidence
+      scores.
+  - texto: SpeechSynthesizer con una neural voice.
+    correcta: false
+    explicacion: SpeechSynthesizer convierte texto en audio; no detecta ni redacta PII.
+  explicacion_general: Las palabras estructura, consistencia y confidence score apuntan a Azure Language. La flexibilidad
+    y varias tareas en una llamada apuntan a un modelo general. Repasa las lecciones 26 y 29.
+- id: q04
+  tipo: multi-select
+  grupo: G5
+  objetivo: Build a lightweight application that includes text analysis
+  lecciones:
+  - 27
+  - 28
+  enunciado: Comparas analizar_ticket.py con lenguaje_luma.py. ¿Qué DOS diferencias del código reflejan los dos
+    enfoques de text analysis? Selecciona DOS respuestas.
+  opciones:
+  - texto: analizar_ticket.py recibe confidence scores por entidad automáticamente.
+    correcta: false
+    explicacion: El modelo general no devuelve confidence scores en esa demo.
+  - texto: analizar_ticket.py pide JSON al modelo y valida la salida con json.loads.
+    correcta: true
+    explicacion: El modelo general recibe instrucciones para devolver un JSON definido por el desarrollador.
+  - texto: lenguaje_luma.py usa TextAnalyticsClient y métodos como detect_language o recognize_pii_entities.
+    correcta: true
+    explicacion: Azure Language expone métodos específicos por tarea mediante TextAnalyticsClient.
+  - texto: lenguaje_luma.py combina keywords, entidades, sentimiento y resumen en una sola llamada.
+    correcta: false
+    explicacion: Azure Language usa un método por tarea; la demo detecta idioma y PII por separado.
+  explicacion_general: La demo de modelo general combina tareas con prompts y JSON; Azure Language usa un cliente
+    especializado, esquema fijo y scores por resultado. Repasa las lecciones 27 y 28.
+- id: q05
+  tipo: multiple-choice
+  grupo: G5
+  objetivo: Build a lightweight application that includes text analysis
+  lecciones:
+  - 28
+  enunciado: En lenguaje_luma.py, `lang = client.detect_language(docs)[0].primary_language`. ¿Qué información espera
+    imprimir el programa para el idioma?
+  opciones:
+  - texto: Un archivo WAV con la pronunciación del texto.
+    correcta: false
+    explicacion: Eso corresponde a text-to-speech, no a language detection.
+  - texto: El nombre del idioma, su código ISO 639-1 y un confidence score.
+    correcta: true
+    explicacion: detect_language devuelve el idioma principal con name, iso6391_name y confidence_score.
+  - texto: Un resumen abstractivo del ticket y sus keywords.
+    correcta: false
+    explicacion: Esa salida pertenece a la demo con modelo general, no a detect_language.
+  - texto: La lista de voices disponibles en Azure Speech.
+    correcta: false
+    explicacion: Las voices pertenecen a Azure Speech, no a Azure Language.
+  explicacion_general: Azure Language devuelve resultados estructurados. En language detection, la estructura incluye
+    nombre del idioma, código ISO y confidence score para decidir enrutamiento. Repasa la lección 28.
+- id: q06
+  tipo: multiple-choice
+  grupo: G3
+  objetivo: Identify features and capabilities of speech recognition and speech synthesis
+  lecciones:
+  - 30
+  enunciado: Luma quiere que su respuesta hablada use una voz natural en español de México y controle pausas, velocidad
+    y cómo se leen números o fechas. ¿Qué opción corresponde?
+  opciones:
+  - texto: Speech recognition con language identification.
+    correcta: false
+    explicacion: Speech recognition convierte voz en texto; no genera una respuesta hablada.
+  - texto: TextAnalyticsClient con recognize_pii_entities.
+    correcta: false
+    explicacion: TextAnalyticsClient analiza texto; no controla voces ni pausas de salida.
+  - texto: Text-to-speech con una neural voice y SSML.
+    correcta: true
+    explicacion: Azure Speech TTS usa neural voices y SSML para pronunciación, pausas, velocidad y énfasis.
+  - texto: Batch transcription con WAV PCM.
+    correcta: false
+    explicacion: Batch transcription sirve para transcribir audio largo, no para sintetizar voz.
+  explicacion_general: La lección 30 distingue STT y TTS. Para leer texto en voz alta con naturalidad se usa speech
+    synthesis; SSML controla pronunciación, pausas, ritmo y cómo leer números o fechas. Repasa la lección 30.
+- id: q07
+  tipo: multiple-choice
+  grupo: G3
+  objetivo: Identify features and capabilities of speech recognition and speech synthesis
+  lecciones:
+  - 30
+  enunciado: Luma quiere que su app lea en voz alta el estado de un caso para clientes con baja visión. ¿Qué capacidad
+    de Azure Speech corresponde?
+  opciones:
+  - texto: Speech recognition, porque convierte audio del micrófono en texto.
+    correcta: false
+    explicacion: Recognition o STT va de voz a texto; aquí se necesita texto a voz.
+  - texto: Language detection, porque identifica el idioma del ticket.
+    correcta: false
+    explicacion: Detectar idioma no genera audio para el cliente.
+  - texto: Object detection, porque ubica objetos en una imagen.
+    correcta: false
+    explicacion: Object detection es computer vision, no síntesis de voz.
+  - texto: Speech synthesis, porque convierte texto o SSML en audio con una voz sintética.
+    correcta: true
+    explicacion: Synthesis o TTS recibe texto y genera audio, ideal para leer respuestas en voz alta.
+  explicacion_general: 'La lección 30 enfatiza la dirección: speech recognition convierte voz en texto; speech synthesis
+    convierte texto en voz. Para accesibilidad y lectura en voz alta, usa TTS. Repasa la lección 30.'
+- id: q08
+  tipo: multi-select
+  grupo: G5
+  objetivo: Respond to spoken prompts by using a deployed multimodal model
+  lecciones:
+  - 31
+  enunciado: En pregunta_hablada.py envías `pregunta.wav` a un modelo de audio. ¿Qué DOS detalles son correctos
+    según la demo? Selecciona DOS respuestas.
+  opciones:
+  - texto: El audio viaja codificado en base64 dentro de un contenido input_audio.
+    correcta: true
+    explicacion: La demo lee el WAV, lo codifica en base64 y lo envía con type input_audio.
+  - texto: La API exige transcribir primero el archivo con SpeechRecognizer.
+    correcta: false
+    explicacion: El modelo multimodal entiende la voz directamente; no hay transcripción previa en el código.
+  - texto: La autenticación del ejemplo usa una API key de SpeechConfig.
+    correcta: false
+    explicacion: El código usa DefaultAzureCredential con get_bearer_token_provider para Entra ID.
+  - texto: modalities=["text"] pide que la respuesta llegue como texto.
+    correcta: true
+    explicacion: El ejemplo solicita una salida de texto, aunque los modelos de audio también pueden responder con
+      audio.
+  explicacion_general: Los modelos multimodales de audio aceptan la voz como parte del prompt. El curso muestra
+    input_audio en base64 y salida en texto con chat completions. Repasa la lección 31.
+- id: q09
+  tipo: multiple-choice
+  grupo: G5
+  objetivo: Build a lightweight application by using Azure Speech in Foundry Tools
+  lecciones:
+  - 32
+  enunciado: En voz_luma.py, una grabación corta se transcribe con `recognize_once_async().get()`. ¿Qué debes revisar
+    para saber si la transcripción fue exitosa?
+  opciones:
+  - texto: El valor de result.reason, buscando RecognizedSpeech.
+    correcta: true
+    explicacion: ResultReason indica éxito, NoMatch o Canceled; siempre debe revisarse.
+  - texto: El nombre de la neural voice configurada para synthesis.
+    correcta: false
+    explicacion: La voice afecta TTS, no si STT reconoció correctamente el audio.
+  - texto: El tamaño del archivo respuesta.wav.
+    correcta: false
+    explicacion: respuesta.wav se genera en synthesis, después de la transcripción.
+  - texto: La cantidad de entidades PII encontradas.
+    correcta: false
+    explicacion: PII corresponde a Azure Language, no al resultado básico del SpeechRecognizer.
+  explicacion_general: SpeechRecognizer convierte audio en texto y devuelve un ResultReason. RecognizedSpeech indica
+    éxito, NoMatch que no se entendió voz y Canceled un error como credenciales o red. Repasa la lección 32.
+- id: q10
+  tipo: multiple-choice
+  grupo: G3
+  objetivo: Identify features and capabilities of speech recognition and speech synthesis
+  lecciones:
+  - 33
+  enunciado: Luma desea transcribir cada noche llamadas de soporte de 20 minutos en grandes volúmenes. ¿Qué opción
+    evita el uso incorrecto de recognize_once?
+  opciones:
+  - texto: Text to speech con SSML para controlar pausas y énfasis.
+    correcta: false
+    explicacion: TTS genera audio; no transcribe llamadas.
+  - texto: Image generation con un prompt sobre la llamada.
+    correcta: false
+    explicacion: Image generation crea imágenes y no procesa audio.
+  - texto: recognize_once para cada archivo completo.
+    correcta: false
+    explicacion: recognize_once reconoce una sola frase corta, no llamadas largas.
+  - texto: Batch transcription o continuous recognition para audio largo o por lotes.
+    correcta: true
+    explicacion: La lección recomienda continuous o batch cuando la duración o el volumen superan una frase corta.
+  explicacion_general: recognize_once es para frases cortas. Para llamadas largas se usa continuous recognition;
+    para grandes volúmenes procesados periódicamente, batch transcription es adecuado. Repasa la lección 33.

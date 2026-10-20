@@ -1,0 +1,242 @@
+id: cuestionario-01
+titulo: Cuestionario 1 · Fundamentos de IA y Responsible AI
+seccion: '2'
+lecciones: 4–8
+tiempo_min: 15
+descripcion: Practica cómo identificar cargas de trabajo de IA, cómo funcionan los modelos generativos y cómo aplicar
+  Responsible AI en escenarios de Luma.
+preguntas:
+- id: q01
+  tipo: multiple-choice
+  grupo: G3
+  objetivo: Identify scenarios for common AI workloads, including generative and agentic AI, text analysis, speech,
+    computer vision, and information extraction
+  lecciones:
+  - 5
+  enunciado: Luma recibe un mensaje de voz de José y quiere guardarlo como texto dentro del ticket antes de analizarlo.
+    ¿Qué carga de trabajo resuelve primero esa necesidad?
+  opciones:
+  - texto: Text analysis, porque detecta entidades y sentimiento en texto existente.
+    correcta: false
+    explicacion: Text analysis puede usarse después, pero la entrada inicial es audio y aún no existe el texto.
+  - texto: Speech recognition, porque convierte voz en texto.
+    correcta: true
+    explicacion: Speech recognition, o speech-to-text, transforma el audio del cliente en texto para el ticket.
+  - texto: Computer vision, porque interpreta señales del router.
+    correcta: false
+    explicacion: Computer vision trabaja con imágenes o video, no con un mensaje de voz.
+  - texto: Information extraction, porque produce campos estructurados.
+    correcta: false
+    explicacion: Information extraction podría extraer campos luego, pero el primer problema es transcribir audio.
+  explicacion_general: 'Usa el método de tres preguntas: entra audio, necesitas texto y no hay una acción de varios
+    pasos. Eso apunta a Speech recognition antes de cualquier análisis posterior. Repasa la lección 5.'
+- id: q02
+  tipo: multiple-choice
+  grupo: G3
+  objetivo: Identify scenarios for common AI workloads, including generative and agentic AI, text analysis, speech,
+    computer vision, and information extraction
+  lecciones:
+  - 5
+  enunciado: Un cliente sube una foto de su factura. Luma necesita obtener número de cuenta, fecha y total en JSON.
+    ¿Qué carga de trabajo es la más adecuada?
+  opciones:
+  - texto: Computer vision, porque la entrada es una imagen.
+    correcta: false
+    explicacion: La entrada es una imagen, pero el resultado pedido son campos estructurados, no una descripción
+      visual.
+  - texto: Generative AI, porque redactará una respuesta al cliente.
+    correcta: false
+    explicacion: El escenario no pide redactar contenido nuevo; pide convertir datos de una factura a campos.
+  - texto: Information extraction, porque convierte documentos o imágenes en campos estructurados.
+    correcta: true
+    explicacion: Cuando necesitas cuenta, fecha y total en JSON, la clave es extraer información estructurada.
+  - texto: Speech, porque procesa entradas no textuales.
+    correcta: false
+    explicacion: Speech procesa audio o voz, no facturas fotografiadas.
+  explicacion_general: El resultado esperado distingue mejor la carga de trabajo que el tipo de entrada. Una foto
+    de una factura con salida JSON es information extraction. Repasa la lección 5.
+- id: q03
+  tipo: multiple-choice
+  grupo: G2
+  objetivo: Describe how generative AI models work
+  lecciones:
+  - 6
+  enunciado: Un compañero dice que un LLM responde copiando una frase completa de su memoria. ¿Cuál explicación
+    corrige mejor esa idea?
+  opciones:
+  - texto: El modelo predice el siguiente token, lo agrega al texto y repite el proceso.
+    correcta: true
+    explicacion: La lección explica que el texto se construye token por token mediante probabilidades y muestreo.
+  - texto: El modelo busca una respuesta exacta en una base de datos interna de documentos.
+    correcta: false
+    explicacion: Un LLM no responde buscando necesariamente un documento exacto; genera contenido nuevo paso a paso.
+  - texto: El modelo solo aplica reglas escritas a mano por el desarrollador.
+    correcta: false
+    explicacion: Eso describe software basado en reglas, no un modelo entrenado con patrones de datos.
+  - texto: El modelo recuerda todas las conversaciones anteriores del usuario.
+    correcta: false
+    explicacion: El modelo no recuerda entre llamadas; la aplicación debe enviar o encadenar el contexto.
+  explicacion_general: Un LLM moderno usa tokens, embeddings y attention dentro de una arquitectura transformer.
+    Su salida se genera como una secuencia de predicciones, no como una copia completa. Repasa la lección 6.
+- id: q04
+  tipo: multiple-choice
+  grupo: G2
+  objetivo: Describe how generative AI models work
+  lecciones:
+  - 6
+  enunciado: En una prueba de Luma, las respuestas se cortan antes de terminar. El equipo configuró un max output
+    tokens muy bajo. ¿Qué cambio atiende directamente el problema?
+  opciones:
+  - texto: Cambiar el resource group del proyecto.
+    correcta: false
+    explicacion: El resource group ayuda a administrar recursos, pero no controla la longitud de cada respuesta.
+  - texto: Usar un prompt más creativo con temperature alta.
+    correcta: false
+    explicacion: Temperature afecta variación, no evita que la respuesta se corte por falta de tokens.
+  - texto: Aumentar max output tokens o pedir una respuesta más corta.
+    correcta: true
+    explicacion: Si el límite de salida es demasiado bajo, debes aumentarlo o reducir la longitud solicitada.
+  - texto: Mover el deployment a Batch.
+    correcta: false
+    explicacion: Batch es para trabajos asíncronos grandes; no soluciona una respuesta truncada por límite de tokens.
+  explicacion_general: max output tokens limita la longitud de la respuesta. Si el límite es insuficiente, el modelo
+    puede dejar la salida incompleta. Repasa la lección 6.
+- id: q05
+  tipo: multi-select
+  grupo: G1
+  objetivo: Describe principles of responsible AI
+  lecciones:
+  - 7
+  enunciado: En el piloto de Luma, los tickets de zonas rurales reciben menor prioridad y los números de tarjeta
+    aparecen en logs visibles para todo el equipo. ¿Qué DOS principios están más directamente en riesgo? Selecciona
+    DOS respuestas.
+  opciones:
+  - texto: Fairness
+    correcta: true
+    explicacion: La prioridad menor para un segmento de clientes puede ser un sesgo que perjudica a un grupo.
+  - texto: Transparency
+    correcta: false
+    explicacion: Transparency trata de informar que se usa IA y explicar capacidades y límites.
+  - texto: Inclusiveness
+    correcta: false
+    explicacion: Inclusiveness se centra en diseñar para todas las personas, por ejemplo accesibilidad.
+  - texto: Privacy and Security
+    correcta: true
+    explicacion: Los datos de tarjeta expuestos en logs son un riesgo claro de privacidad y seguridad.
+  explicacion_general: El primer riesgo es trato desigual por segmento; el segundo es exposición de datos personales.
+    Son causas distintas y corresponden a Fairness y Privacy and Security. Repasa la lección 7.
+- id: q06
+  tipo: multiple-choice
+  grupo: G1
+  objetivo: Describe principles of responsible AI
+  lecciones:
+  - 7
+  enunciado: El asistente de Luma inventa que un reembolso se aprobará en 48 horas, aunque esa política no existe.
+    ¿Qué control aplica mejor Reliability and Safety?
+  opciones:
+  - texto: Aumentar la cuota TPM del deployment.
+    correcta: false
+    explicacion: La cuota controla capacidad por minuto; no evita que el modelo invente políticas.
+  - texto: Hacer grounding en políticas oficiales y probar casos difíciles.
+    correcta: true
+    explicacion: Grounding y pruebas con casos inesperados reducen hallucinations y mejoran la confiabilidad.
+  - texto: Ocultar el nombre del cliente en la interfaz.
+    correcta: false
+    explicacion: Eso ayuda a privacidad, pero no corrige la falta de confiabilidad de la respuesta.
+  - texto: Permitir que el modelo responda sin restricciones para ser más útil.
+    correcta: false
+    explicacion: Quitar restricciones aumenta el riesgo de respuestas inventadas o inseguras.
+  explicacion_general: Reliability and Safety exige que el sistema funcione como se espera, incluso ante casos raros.
+    Basar respuestas en políticas y validar con pruebas reduce plazos inventados. Repasa la lección 7.
+- id: q07
+  tipo: multiple-choice
+  grupo: G1
+  objetivo: Describe principles of responsible AI
+  lecciones:
+  - 8
+  enunciado: Luma quiere que una persona definida revise las respuestas automáticas sobre reembolsos y que exista
+    auditoría periódica. ¿Qué principio aplica principalmente?
+  opciones:
+  - texto: Transparency
+    correcta: false
+    explicacion: Transparency sería explicar al cliente que interactúa con IA y cuáles son sus límites.
+  - texto: Fairness
+    correcta: false
+    explicacion: Fairness se enfoca en evitar sesgos o trato desfavorable a grupos.
+  - texto: Accountability
+    correcta: true
+    explicacion: Asignar responsables, supervisión y auditoría corresponde a Accountability.
+  - texto: Inclusiveness
+    correcta: false
+    explicacion: Inclusiveness busca que la solución funcione para personas con diferentes necesidades.
+  explicacion_general: Transparency ayuda a entender el sistema; Accountability define quién responde por él y cómo
+    se supervisa. En reembolsos automáticos, la revisión humana es clave. Repasa la lección 8.
+- id: q08
+  tipo: multiple-choice
+  grupo: G1
+  objetivo: Describe principles of responsible AI
+  lecciones:
+  - 7
+  enunciado: El canal de voz de Luma falla con algunos acentos y no ofrece alternativa para clientes con discapacidad
+    auditiva. ¿Qué acción refleja mejor Inclusiveness?
+  opciones:
+  - texto: Subir temperature para que el modelo responda con más variedad.
+    correcta: false
+    explicacion: La variación de respuesta no resuelve barreras de acceso al canal.
+  - texto: Probar con usuarios diversos y ofrecer chat, subtítulos o texto.
+    correcta: true
+    explicacion: La inclusión exige diseñar para distintas capacidades, acentos y formas de acceso.
+  - texto: Ocultar los datos personales en las transcripciones.
+    correcta: false
+    explicacion: Eso es importante para Privacy and Security, no la acción principal de accesibilidad.
+  - texto: Publicar una página que explique que el sistema usa IA.
+    correcta: false
+    explicacion: Eso apoya Transparency, pero no da alternativas accesibles.
+  explicacion_general: Inclusiveness significa que la solución sirva a todas las personas. En un canal de voz, debes
+    probar con usuarios diversos y ofrecer alternativas accesibles. Repasa la lección 7.
+- id: q09
+  tipo: multi-select
+  grupo: G1
+  objetivo: Describe principles of responsible AI
+  lecciones:
+  - 7
+  enunciado: Estás preparando el piloto de Luma Asistente. ¿Qué DOS decisiones son controles de Responsible AI enseñados
+    en la sección? Selecciona DOS respuestas.
+  opciones:
+  - texto: Ocultar PII, cifrar datos y limitar acceso con RBAC.
+    correcta: true
+    explicacion: Son controles directos para Privacy and Security.
+  - texto: Desactivar content filters para reducir rechazos.
+    correcta: false
+    explicacion: La lección recomienda mantener guardrails y content filters como ayuda de seguridad.
+  - texto: Permitir que el agente apruebe reembolsos sin revisión.
+    correcta: false
+    explicacion: Las decisiones importantes requieren responsables, supervisión y, a menudo, revisión humana.
+  - texto: Exigir revisión humana en respuestas sobre dinero.
+    correcta: true
+    explicacion: La revisión humana apoya Accountability y reduce riesgos en decisiones importantes.
+  explicacion_general: 'Las herramientas ayudan, pero las decisiones de Responsible AI son de diseño: proteger datos,
+    usar controles de acceso y mantener humanos responsables cuando importa. Repasa la lección 7.'
+- id: q10
+  tipo: multiple-choice
+  grupo: G1
+  objetivo: Describe principles of responsible AI
+  lecciones:
+  - 8
+  enunciado: Un analista dice que Fairness significa dar exactamente la misma prioridad a todos los tickets. ¿Cuál
+    respuesta corrige mejor esa confusión?
+  opciones:
+  - texto: Fairness evita sesgos que perjudican a grupos y se revisa comparando resultados por segmento.
+    correcta: true
+    explicacion: La lección aclara que equidad no es dar lo mismo a todos, sino evitar perjuicios injustos.
+  - texto: Fairness consiste en explicar al cliente cómo funciona el sistema.
+    correcta: false
+    explicacion: Esa explicación corresponde principalmente a Transparency.
+  - texto: Fairness significa proteger tarjetas y contraseñas.
+    correcta: false
+    explicacion: Proteger datos personales corresponde a Privacy and Security.
+  - texto: Fairness se logra usando siempre el modelo más grande disponible.
+    correcta: false
+    explicacion: El tamaño del modelo no garantiza ausencia de sesgos ni trato justo.
+  explicacion_general: Fairness se evalúa observando si grupos reciben trato desfavorable sin razón válida. La mitigación
+    es medir por segmentos y corregir datos o reglas que causan sesgo. Repasa la lección 8.

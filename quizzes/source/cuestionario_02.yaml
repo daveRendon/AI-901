@@ -1,0 +1,248 @@
+id: cuestionario-02
+titulo: 'Cuestionario 2 · Microsoft Foundry: modelos y deployments'
+seccion: '3'
+lecciones: 9–13
+tiempo_min: 15
+descripcion: Practica la jerarquía de Foundry, selección de modelos, deployment types, playground, acceso, cuotas,
+  presupuesto y limpieza.
+preguntas:
+- id: q01
+  tipo: multiple-choice
+  grupo: G4
+  objetivo: Deploy a model and interact with it in the Foundry portal
+  lecciones:
+  - 9
+  enunciado: Luma quiere aislar el trabajo de soporte y facturación dentro del mismo Foundry resource, con archivos
+    y evaluaciones separados. ¿Qué debe crear?
+  opciones:
+  - texto: Dos tenants de Microsoft Entra ID.
+    correcta: false
+    explicacion: El tenant representa la organización; no es el mecanismo normal para aislar equipos dentro de un
+      resource.
+  - texto: Dos subscriptions para el mismo equipo.
+    correcta: false
+    explicacion: La subscription es límite de facturación y cuota, pero el escenario pide aislar espacios de trabajo.
+  - texto: Varios Foundry projects dentro del resource.
+    correcta: true
+    explicacion: Los projects aíslan agentes, archivos, índices y evaluaciones dentro de un Foundry resource.
+  - texto: Un solo deployment con más TPM.
+    correcta: false
+    explicacion: Un deployment es una instancia de modelo; no separa archivos ni evaluaciones de equipos.
+  explicacion_general: La jerarquía es tenant, subscription, resource group, Foundry resource y project. Para aislar
+    equipos dentro del mismo resource, usa varios projects. Repasa la lección 9.
+- id: q02
+  tipo: multiple-choice
+  grupo: G4
+  objetivo: Deploy a model and interact with it in the Foundry portal
+  lecciones:
+  - 9
+  enunciado: ¿Cuál descripción distingue mejor un Foundry resource de un Foundry project?
+  opciones:
+  - texto: El resource es infraestructura con endpoints y cuota; el project es el espacio de trabajo de desarrollo.
+    correcta: true
+    explicacion: El resource vive en Azure y aloja endpoints y deployments; el project agrupa trabajo de la solución.
+  - texto: El resource contiene solo archivos; el project contiene la subscription.
+    correcta: false
+    explicacion: La subscription está por encima del resource, y los archivos pertenecen al project.
+  - texto: El project expone las keys de Azure; el resource solo guarda evaluaciones.
+    correcta: false
+    explicacion: Las keys y endpoints pertenecen al resource; evaluaciones y agentes se organizan en projects.
+  - texto: 'No hay diferencia: ambos nombres se usan para el mismo objeto.'
+    correcta: false
+    explicacion: La lección enfatiza que resource y project son niveles distintos.
+  explicacion_general: El Foundry resource es el recurso de Azure con endpoints, deployments y cuota compartida.
+    El Foundry project es el espacio aislado para construir agentes, archivos, índices, evaluaciones y código. Repasa
+    la lección 9.
+- id: q03
+  tipo: multiple-choice
+  grupo: G2
+  objetivo: Identify an appropriate AI model, based on capabilities
+  lecciones:
+  - 10
+  enunciado: Los clientes de Luma deben encontrar artículos de ayuda por significado, aunque no usen las mismas
+    palabras del título. ¿Qué tipo de modelo elegirías?
+  opciones:
+  - texto: Image generation
+    correcta: false
+    explicacion: Image generation crea imágenes nuevas; no convierte texto en representaciones para búsqueda semántica.
+  - texto: Modelo realtime de audio
+    correcta: false
+    explicacion: Los modelos de audio sirven para conversación por voz o audio, no para comparar significado de
+      textos.
+  - texto: LLM más grande disponible
+    correcta: false
+    explicacion: Un LLM puede ayudar, pero la necesidad específica de búsqueda por significado apunta a vectores.
+  - texto: Embeddings
+    correcta: true
+    explicacion: Los embeddings convierten texto en vectores para comparar significados aunque cambien las palabras.
+  explicacion_general: La modalidad de entrada y salida descarta opciones. Para búsqueda semántica, el catálogo
+    ofrece modelos de embeddings que generan vectores. Repasa la lección 10.
+- id: q04
+  tipo: multi-select
+  grupo: G2
+  objetivo: Identify an appropriate AI model, based on capabilities
+  lecciones:
+  - 10
+  enunciado: Estás comparando modelos para un asistente de Luma. ¿Qué DOS criterios de selección aparecen en la
+    lección? Selecciona DOS respuestas.
+  opciones:
+  - texto: Elegir siempre el modelo con más parámetros.
+    correcta: false
+    explicacion: La regla del curso es usar el modelo más pequeño que cumpla la tarea con calidad suficiente.
+  - texto: Revisar modalidades de entrada y salida.
+    correcta: true
+    explicacion: Las modalidades son el filtro más rápido para saber si el modelo acepta y produce lo que necesitas.
+  - texto: Comprobar disponibilidad, región, deployment type y cuota.
+    correcta: true
+    explicacion: Un modelo que no está disponible en tu región o no tiene cuota no sirve para la solución.
+  - texto: Ignorar costo si el modelo aparece primero en el catálogo.
+    correcta: false
+    explicacion: El costo por tokens, imagen o minuto es uno de los criterios de decisión.
+  - texto: Cambiar a Provisioned antes de hacer pruebas de calidad.
+    correcta: false
+    explicacion: Provisioned es una opción de capacidad, no un criterio inicial que reemplace pruebas de calidad.
+  explicacion_general: La lección propone comparar capacidad, modalidades, calidad, costo, latencia, contexto y
+    disponibilidad. No elijas por tamaño o posición en el catálogo. Repasa la lección 10.
+- id: q05
+  tipo: multiple-choice
+  grupo: G2
+  objetivo: Identify appropriate model deployment options and configuration parameters
+  lecciones:
+  - 11
+  enunciado: Una empresa necesita que las solicitudes se procesen dentro de la Unión Europea y quiere pagar por
+    token. ¿Qué deployment type corresponde?
+  opciones:
+  - texto: Global Standard
+    correcta: false
+    explicacion: Global Standard puede procesar en cualquier región de Azure y no cumple residencia por zona.
+  - texto: Data Zone Standard
+    correcta: true
+    explicacion: Data Zone Standard procesa dentro de una zona como EU y se paga por token.
+  - texto: Provisioned
+    correcta: false
+    explicacion: Provisioned reserva capacidad y se paga por PTU, no es la opción por token pedida.
+  - texto: Developer
+    correcta: false
+    explicacion: Developer se menciona para evaluar modelos fine-tuned, no para producción con residencia EU por
+      token.
+  explicacion_general: Residencia por zona apunta a Data Zone Standard. Si además quiere pagar por token, encaja
+    mejor que Provisioned. Repasa la lección 11.
+- id: q06
+  tipo: multi-select
+  grupo: G2
+  objetivo: Identify appropriate model deployment options and configuration parameters
+  lecciones:
+  - 11
+  enunciado: Al crear un deployment de gpt-5-mini para Luma, ¿qué TRES elementos se configuran en el deployment,
+    no en cada solicitud? Selecciona TRES respuestas.
+  opciones:
+  - texto: Deployment name que usará el código.
+    correcta: true
+    explicacion: El nombre del deployment se define al desplegar y es lo que se pasa como model en el código.
+  - texto: Versión del modelo y política de actualización.
+    correcta: true
+    explicacion: La versión fija o actualización automática es una configuración del deployment.
+  - texto: Límite de tokens por minuto asignado.
+    correcta: true
+    explicacion: El rate limit en TPM se toma de la cuota y se asigna al deployment.
+  - texto: Pregunta concreta del usuario.
+    correcta: false
+    explicacion: La pregunta del usuario viaja en cada solicitud como input o user prompt.
+  - texto: temperature de una llamada individual.
+    correcta: false
+    explicacion: temperature, si el modelo la admite, es un parámetro de la solicitud.
+  explicacion_general: El deployment define modelo, versión, tipo, región, TPM y guardrails. La solicitud define
+    instrucciones, input, formato y parámetros como max output tokens o temperature. Repasa la lección 11.
+- id: q07
+  tipo: multiple-choice
+  grupo: G2
+  objetivo: Identify appropriate model deployment options and configuration parameters
+  lecciones:
+  - 11
+  enunciado: Un script de pruebas empieza a recibir errores 429 al llamar al deployment de Luma. ¿Qué interpreta
+    y qué haría primero?
+  opciones:
+  - texto: Superó el límite de uso; reasignaría TPM, probaría otra región o pediría más cuota.
+    correcta: true
+    explicacion: El 429 indica demasiadas solicitudes o tokens por minuto frente al límite asignado.
+  - texto: El nombre del deployment no existe; cambiaría el archivo .env.
+    correcta: false
+    explicacion: Un deployment inexistente suele producir 404 o DeploymentNotFound, no 429.
+  - texto: La API key expiró; escribiría la key en el código.
+    correcta: false
+    explicacion: No debes escribir keys en código, y 429 no indica autenticación.
+  - texto: El modelo no admite español; cambiaría el prompt a inglés.
+    correcta: false
+    explicacion: La cuota no depende del idioma del prompt en ese sentido.
+  explicacion_general: La cuota se mide en tokens por minuto por subscription, región, modelo y deployment type.
+    Superarla produce 429. Repasa la lección 11.
+- id: q08
+  tipo: multiple-choice
+  grupo: G4
+  objetivo: Deploy a model and interact with it in the Foundry portal
+  lecciones:
+  - 12
+  enunciado: En el playground, el equipo agrega Instructions para que el asistente responda solo sobre Luma, breve
+    y en español. ¿Qué demuestra la prueba?
+  opciones:
+  - texto: Que hay que crear otro resource group para cambiar el tono.
+    correcta: false
+    explicacion: El tono se controla con instrucciones, no con resource groups.
+  - texto: Que el deployment type cambió automáticamente a Provisioned.
+    correcta: false
+    explicacion: Las instrucciones no cambian el tipo de deployment.
+  - texto: Que las instrucciones modifican el comportamiento sin tocar el deployment.
+    correcta: true
+    explicacion: El playground permite probar prompts e instrucciones sobre el mismo deployment.
+  - texto: Que el modelo recuerda conversaciones de días anteriores sin historial.
+    correcta: false
+    explicacion: El modelo no recuerda entre llamadas; el playground envía el historial de la conversación actual.
+  explicacion_general: El playground sirve para probar prompts, comparar modelos y capturar una configuración reutilizable.
+    Las Instructions cambian rol, alcance, tono y límites. Repasa la lección 12.
+- id: q09
+  tipo: multiple-choice
+  grupo: G4
+  objetivo: Deploy a model and interact with it in the Foundry portal
+  lecciones:
+  - 13
+  enunciado: Un desarrollador usará AIProjectClient para conectarse al project luma-soporte sin secretos en el código.
+    ¿Qué necesita?
+  opciones:
+  - texto: Una API key pegada en chat_luma.py.
+    correcta: false
+    explicacion: El curso evita secretos en código, y AIProjectClient no usa API key para el project.
+  - texto: Solo el endpoint compatible con OpenAI terminado en /openai/v1/.
+    correcta: false
+    explicacion: Ese endpoint corresponde a la alternativa con OpenAI SDK y key, no al project client.
+  - texto: El rol Foundry Account Owner para todos los usuarios.
+    correcta: false
+    explicacion: Para desarrollar, Foundry User es el rol de mínimo privilegio; Account Owner es excesivo.
+  - texto: Microsoft Entra ID con DefaultAzureCredential y un rol como Foundry User.
+    correcta: true
+    explicacion: AIProjectClient se conecta al project endpoint con Entra ID y permisos RBAC.
+  explicacion_general: Para un Foundry project, el curso usa AIProjectClient, project endpoint y DefaultAzureCredential.
+    En local usa az login; en Azure puede usar managed identity. Repasa la lección 13.
+- id: q10
+  tipo: multiple-choice
+  grupo: G2
+  objetivo: Identify appropriate model deployment options and configuration parameters
+  lecciones:
+  - 13
+  enunciado: Al terminar el curso, Luma quiere evitar costos innecesarios y confirmar que no sigue consumiendo.
+    ¿Cuál plan coincide con la lección?
+  opciones:
+  - texto: Borrar solo el project y omitir la revisión de costos porque Standard cobra solo si se usa.
+    correcta: false
+    explicacion: La lección recomienda borrar recursos dedicados y verificar Cost Management; además algunos deployments
+      cobran por tiempo.
+  - texto: Dejar Provisioned activo porque no cobra si nadie lo llama.
+    correcta: false
+    explicacion: Provisioned cobra por capacidad reservada aunque no se use.
+  - texto: Subir el TPM de pruebas para absorber cualquier script en ciclo.
+    correcta: false
+    explicacion: En pruebas se recomienda TPM bajo para limitar sorpresas de consumo.
+  - texto: Borrar deployments no usados, eliminar el resource group y revisar Cost Management al día siguiente.
+    correcta: true
+    explicacion: La limpieza recomendada elimina recursos juntos y verifica costos después.
+  explicacion_general: Controla gasto con budgets, alertas y TPM bajo en pruebas. Al terminar, borra recursos dedicados
+    y verifica Cost Management. Repasa la lección 13.
