@@ -334,3 +334,13 @@ Cuando algo falle, revisa en este orden: **código → endpoint → identidad �
 **Dave R** · Microsoft MVP
 
 - Artículos sobre Azure y Microsoft Foundry: [medium.com/@daverendon](https://medium.com/@daverendon)
+
+## Licencia
+
+© 2026 Dave Rendon. **Todos los derechos reservados.**
+
+Puedes clonar, ejecutar y modificar este material **solo para tu aprendizaje personal** y para preparar el examen AI-901. No está permitido redistribuirlo, publicarlo, venderlo, usarlo para impartir formación, reutilizar los cuestionarios o el simulacro, ni usarlo para entrenar modelos de IA sin una licencia comercial previa, por escrito y de pago. Cualquier uso autorizado debe dar crédito completo al autor.
+
+Consulta los términos completos en [LICENSE](LICENSE).
+
+Microsoft, Azure y Microsoft Foundry son marcas comerciales de Microsoft. Este curso no está afiliado ni respaldado por Microsoft.

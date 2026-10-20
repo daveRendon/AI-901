@@ -1,0 +1,110 @@
+AI-901 en español · Azure AI Fundamentals con Microsoft Foundry
+Copyright (c) 2026 Dave Rendon. All rights reserved.
+
+PROPRIETARY LICENSE: PERSONAL LEARNING USE ONLY
+
+This repository and everything in it (the "Materials") are the intellectual
+property of Dave Rendon (the "Author"). The Materials include, without
+limitation: source code, scripts, configuration templates, practice guides,
+quizzes, answer keys, mock exams, question banks in any format (Markdown, CSV,
+YAML), sample data, documents, images, audio, video, text, structure, sequence
+and organization.
+
+The Materials are made publicly visible on GitHub to support students of the
+Author's course. Public visibility does NOT place the Materials in the public
+domain and does NOT grant any open-source or Creative Commons license.
+
+1. LIMITED PERSONAL LICENSE
+
+   Subject to the terms below, the Author grants you a personal, non-exclusive,
+   non-transferable, non-sublicensable, revocable license to:
+
+   a) view, download and clone the Materials;
+   b) run, modify and experiment with the code and sample data on your own
+      devices and your own cloud subscriptions; and
+   c) make private copies of the Materials,
+
+   solely for your own personal, non-commercial learning, including taking the
+   Author's course and preparing for the Microsoft AI-901 exam.
+
+2. RESTRICTIONS
+
+   Except as expressly permitted in Section 1 or under a separate written
+   commercial license from the Author (Section 4), you may NOT:
+
+   a) copy, publish, post, share, distribute, redistribute, sell, rent, lease
+      or lend the Materials or any part of them, whether modified or
+      unmodified, free of charge or for a fee;
+   b) upload the Materials, or any substantial part of them, to any website,
+      repository, file-sharing service, forum, course platform, learning
+      management system or social network;
+   c) use the Materials, or any derivative of them, in any course, class,
+      workshop, bootcamp, webinar, video, book, corporate or academic training,
+      or any other teaching or commercial offering;
+   d) reproduce, adapt or translate the quizzes, answer keys, mock exam or
+      question banks, in whole or in part, or import them into any testing or
+      practice-exam product;
+   e) use the Materials to train, fine-tune, evaluate or benchmark any machine
+      learning or artificial intelligence model, or include them in any
+      dataset;
+   f) create derivative works for any purpose other than your own private
+      learning under Section 1; or
+   g) remove, obscure or alter any copyright notice, attribution or this
+      license.
+
+3. ATTRIBUTION
+
+   Any use of the Materials beyond private personal learning, including any use
+   authorized under a commercial license, must give full, clear and prominent
+   credit, as follows:
+
+     "AI-901 en español · Azure AI Fundamentals con Microsoft Foundry,
+      by Dave Rendon (https://github.com/daveRendon/AI-901)"
+
+   Attribution does not by itself grant any right to use the Materials.
+
+4. COMMERCIAL AND REDISTRIBUTION LICENSES
+
+   Any redistribution, publication, teaching, commercial or organizational use
+   of the Materials requires a separate, prior, written and paid license from
+   the Author. To request one, contact the Author through
+   https://github.com/daveRendon.
+
+5. GITHUB FORKS
+
+   Forking this repository on GitHub is permitted only to the extent required
+   by the GitHub Terms of Service. A fork does not grant any right to use,
+   modify or redistribute the Materials beyond Section 1 of this license.
+
+6. THIRD-PARTY MATERIALS AND TRADEMARKS
+
+   Microsoft, Azure, Microsoft Foundry, Microsoft Learn and related names and
+   logos are trademarks of the Microsoft group of companies. This course is not
+   affiliated with, endorsed by or sponsored by Microsoft. Links to Microsoft
+   Learn and other third-party websites are provided for reference only; their
+   content is subject to its own terms. Third-party software packages listed in
+   requirements.txt are governed by their own licenses.
+
+7. TERMINATION
+
+   This license terminates automatically if you breach any of its terms. On
+   termination you must stop using the Materials and delete all copies in your
+   possession. The Author may also seek any remedy available under applicable
+   law.
+
+8. NO WARRANTY AND LIMITATION OF LIABILITY
+
+   THE MATERIALS ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+   FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+   AUTHOR BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, INCLUDING ANY
+   AZURE OR OTHER CLOUD CHARGES INCURRED BY RUNNING THE CODE, WHETHER IN AN
+   ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+   WITH THE MATERIALS OR THEIR USE.
+
+9. RESERVATION OF RIGHTS
+
+   All rights not expressly granted in this license are reserved by the Author.
+
+For permissions beyond this license, contact the Author through
+https://github.com/daveRendon.
